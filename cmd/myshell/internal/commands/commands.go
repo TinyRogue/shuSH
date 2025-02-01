@@ -1,39 +1,23 @@
 package commands
 
-import (
-	"fmt"
-	"os"
-	"strings"
-)
-
 const (
 	Exit = "exit"
 	Echo = "echo"
+	Type = "type"
 )
 
-func HandleCommand(command string, args []string) {
+var BuiltIns = map[string]struct{}{Exit: {}, Echo: {}, Type: {}}
+
+func HandleCommand(input string) {
+	command, args := preprocess(input)
 	switch command {
 	case Exit:
-		if len(args) > 0 && args[0] == "0" {
-			os.Exit(0)
-		}
+		handleExit(args)
 	case Echo:
-		fmt.Fprintf(os.Stdout, "%s\n", strings.Join(args, " "))
+		handleEcho(args)
+	case Type:
+		handleType(args)
 	default:
-		fmt.Printf("%s: command not found\n", command)
+		handleUnknown(command)
 	}
-}
-
-func Preprocess(command string) (cmd string, args []string) {
-	fields := strings.Fields(strings.TrimSpace(command))
-	len := len(fields)
-	if len > 0 {
-		cmd = fields[0]
-	}
-
-	if len > 1 {
-		args = fields[1:]
-	}
-
-	return
 }
