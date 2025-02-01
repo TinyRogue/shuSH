@@ -6,6 +6,6 @@ import (
 	"strings"
 )
 
-func handleEcho(args []string) {
-	fmt.Fprintf(os.Stdout, "%s\n", strings.Join(args, " "))
+func (command *Command) handleEcho() {
+	fmt.Fprintf(os.Stdout, "%s\n", strings.Join(command.subcommands, " "))
 }

@@ -2,16 +2,16 @@ package commands
 
 import "strings"
 
-func preprocess(command string) (cmd string, args []string) {
-	fields := strings.Fields(strings.TrimSpace(command))
+func parse(command string) *Command {
+	cmd := Command{raw: strings.TrimSpace(command)}
+	fields := strings.Fields(cmd.raw)
 	len := len(fields)
 	if len > 0 {
-		cmd = fields[0]
+		cmd.primary = fields[0]
 	}
-
 	if len > 1 {
-		args = fields[1:]
+		cmd.subcommands = fields[1:]
 	}
 
-	return
+	return &cmd
 }

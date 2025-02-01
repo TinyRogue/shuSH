@@ -6,18 +6,22 @@ const (
 	Type = "type"
 )
 
-var BuiltIns = map[string]struct{}{Exit: {}, Echo: {}, Type: {}}
+type Command struct {
+	primary     string
+	subcommands []string
+	raw         string
+}
 
 func HandleCommand(input string) {
-	command, args := preprocess(input)
-	switch command {
+	command := parse(input)
+	switch command.primary {
 	case Exit:
-		handleExit(args)
+		command.handleExit()
 	case Echo:
-		handleEcho(args)
+		command.handleEcho()
 	case Type:
-		handleType(args)
+		command.handleType()
 	default:
-		handleUnknown(command)
+		command.handleUnknown()
 	}
 }

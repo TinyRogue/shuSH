@@ -1,7 +1,9 @@
 package commands
 
-import "fmt"
+import (
+	"fmt"
+)
 
-func handleUnknown(command string) {
-	fmt.Printf("%s: command not found\n", command)
+func (command *Command) handleUnknown() {
+	fmt.Printf("%s: command not found\n", command.primary)
 }
