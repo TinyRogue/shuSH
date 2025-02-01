@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"log"
 	"os"
+
+	"github.com/codecrafters-io/shell-starter-go/cmd/myshell/internal/commands"
 )
 
 func main() {
@@ -15,6 +17,6 @@ func main() {
 			log.Fatalf("An error occurred: %v", scanner.Err())
 		}
 		command := scanner.Text()
-		fmt.Printf("%s: command not found\n", command)
+		commands.HandleCommand(command)
 	}
 }
