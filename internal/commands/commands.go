@@ -22,6 +22,6 @@ func HandleCommand(input string) {
 	case Type:
 		command.handleType()
 	default:
-		command.handleUnknown()
+		command.handleExternal()
 	}
 }
