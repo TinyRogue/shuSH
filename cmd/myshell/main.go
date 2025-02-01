@@ -17,6 +17,7 @@ func main() {
 			log.Fatalf("An error occurred: %v", scanner.Err())
 		}
 		command := scanner.Text()
-		commands.HandleCommand(command)
+		cmd, args := commands.Preprocess(command)
+		commands.HandleCommand(cmd, args)
 	}
 }
