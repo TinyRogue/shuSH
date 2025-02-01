@@ -6,7 +6,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/codecrafters-io/shell-starter-go/cmd/myshell/internal/commands"
+	"github.com/codecrafters-io/shell-starter-go/internal/commands"
 )
 
 func main() {
