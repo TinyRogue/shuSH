@@ -1,1 +1,1 @@
-["Build Your Own Shell" Challenge](https://app.codecrafters.io/courses/shell/overview)
+ShuSH is a simple shell based on the ["codecrafters"](https://app.codecrafters.io/courses/shell/overview).
