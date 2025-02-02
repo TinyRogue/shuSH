@@ -4,8 +4,6 @@ import (
 	"fmt"
 )
 
-var BuiltIns = map[string]struct{}{Exit: {}, Echo: {}, Type: {}}
-
 func (command *Command) handleType() {
 	if len(command.subcommands) < 1 {
 		fmt.Printf(": not found\n")

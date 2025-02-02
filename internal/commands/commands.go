@@ -7,6 +7,8 @@ const (
 	PWD  = "pwd"
 )
 
+var BuiltIns = map[string]struct{}{Exit: {}, Echo: {}, Type: {}, PWD: {}}
+
 type Command struct {
 	primary     string
 	subcommands []string
