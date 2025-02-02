@@ -4,6 +4,7 @@ const (
 	Exit = "exit"
 	Echo = "echo"
 	Type = "type"
+	PWD  = "pwd"
 )
 
 type Command struct {
@@ -21,6 +22,8 @@ func HandleCommand(input string) {
 		command.handleEcho()
 	case Type:
 		command.handleType()
+	case PWD:
+		command.handlePrintWorkingDirectory()
 	default:
 		command.handleExternal()
 	}
