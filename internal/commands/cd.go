@@ -11,6 +11,6 @@ func (command *Command) handleChangeDirectory() {
 		path = command.subcommands[0]
 	}
 	if err := os.Chdir(path); err != nil {
-		fmt.Printf("cd: %s: No such file or director\n", path)
+		fmt.Printf("cd: %s: No such file or directory\n", path)
 	}
 }
